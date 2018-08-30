@@ -40,7 +40,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-	(racer rust-mode flycheck magit nyan-mode use-package evil go-guru color-theme-sanityinc-tomorrow company-go elpy company rainbow-delimiters counsel swiper ivy projectile dumb-jump neotree undo-tree go-mode alchemist gruvbox-theme gruvbox-themev org)))
+	(flycheck-rust racer rust-mode flycheck magit nyan-mode use-package evil go-guru color-theme-sanityinc-tomorrow company-go elpy company rainbow-delimiters counsel swiper ivy projectile dumb-jump neotree undo-tree go-mode alchemist gruvbox-theme gruvbox-themev org)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -244,6 +244,8 @@
 (defun my-racer-mode-hook ()
   (define-key racer-mode-map (kbd "C-c C-j") #'racer-find-definition))
 
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook 'my-racer-mode-hook)
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+  (add-hook 'racer-mode-hook 'my-racer-mode-hook)
