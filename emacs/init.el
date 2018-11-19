@@ -40,7 +40,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-	(flycheck-rust racer rust-mode flycheck magit nyan-mode use-package evil go-guru color-theme-sanityinc-tomorrow company-go elpy company rainbow-delimiters counsel swiper ivy projectile dumb-jump neotree undo-tree go-mode alchemist gruvbox-theme gruvbox-themev org)))
+	(pyenv-mode flycheck-rust racer rust-mode flycheck magit nyan-mode use-package evil go-guru color-theme-sanityinc-tomorrow company-go elpy company rainbow-delimiters counsel swiper ivy projectile dumb-jump neotree undo-tree go-mode alchemist gruvbox-theme gruvbox-themev org)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
