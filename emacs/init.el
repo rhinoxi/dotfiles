@@ -40,7 +40,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-	(markdown-mode fireplace pyenv-mode flycheck-rust racer rust-mode flycheck magit nyan-mode use-package evil go-guru color-theme-sanityinc-tomorrow company-go elpy company rainbow-delimiters counsel swiper ivy projectile dumb-jump neotree undo-tree go-mode alchemist gruvbox-theme gruvbox-themev org)))
+	(cquery company-lsp lsp-ui lsp-mode markdown-mode fireplace pyenv-mode flycheck-rust racer rust-mode flycheck magit nyan-mode use-package evil go-guru color-theme-sanityinc-tomorrow company-go elpy company rainbow-delimiters counsel swiper ivy projectile dumb-jump neotree undo-tree go-mode alchemist gruvbox-theme gruvbox-themev org)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -251,3 +251,12 @@
   (add-hook 'rust-mode-hook #'racer-mode)
   (add-hook 'racer-mode-hook #'eldoc-mode)
   (add-hook 'racer-mode-hook 'my-racer-mode-hook)
+
+(require 'lsp-mode)
+(add-hook 'c++-mode-hook #'lsp)
+
+(require 'lsp-ui)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
+(require 'cquery)
+(setq cquery-executable "/usr/local/bin/cquery")
