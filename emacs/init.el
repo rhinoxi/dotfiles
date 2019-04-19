@@ -100,17 +100,19 @@
 (with-eval-after-load 'evil
     (defalias #'forward-evil-word #'forward-evil-symbol))
 
+(global-visual-line-mode 1)
 ;; The following lines are always needed.  Choose your own keys.
 (require 'org)
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
+(setq org-todo-keywords
+  '((sequence "NEXT(n)" "TODO(t)" "SOMEDAY(s)" | "DONE(d)" "CANCELLED(c)")))
 (setq org-log-done t)
 (setq org-agenda-files (list "~/org/work.org"
-							 "~/org/home.org"))
+							 "~/org/personal.org"))
 
-(setq-default tab-width 4)
 (use-package dumb-jump
   :bind (("M-g o" . dumb-jump-go-other-window)
          ("M-g j" . dumb-jump-go)
@@ -252,11 +254,26 @@
   (add-hook 'racer-mode-hook #'eldoc-mode)
   (add-hook 'racer-mode-hook 'my-racer-mode-hook)
 
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(defun my-c++-mode-hook ()
+  (define-key c++-mode-map (kbd "C-c C-j") #'xref-find-definitions)
+  (define-key c++-mode-map (kbd "C-c C-b") nil)
+  (add-hook 'c++-mode-hook #'lsp))
+
 (require 'lsp-mode)
-(add-hook 'c++-mode-hook #'lsp)
+(add-hook 'c++-mode-hook #'my-c++-mode-hook)
 
 (require 'lsp-ui)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 
 (require 'cquery)
 (setq cquery-executable "/usr/local/bin/cquery")
+
+(define-coding-system-alias 'UTF-8 'utf-8)
+
+(setq c-default-style "linux"
+      c-basic-offset 2)
+
+(setq-default indent-tabs-mode nil)
+
+(setq-default tab-width 4)
