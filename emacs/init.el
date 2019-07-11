@@ -33,35 +33,35 @@
  '(custom-enabled-themes (quote (sanityinc-tomorrow-day)))
  '(custom-safe-themes
    (quote
-	("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" default)))
+    ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" default)))
  '(fci-rule-color "#515151")
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(frame-background-mode (quote dark))
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-	(cquery company-lsp lsp-ui lsp-mode markdown-mode fireplace pyenv-mode flycheck-rust racer rust-mode flycheck magit nyan-mode use-package evil go-guru color-theme-sanityinc-tomorrow company-go elpy company rainbow-delimiters counsel swiper ivy projectile dumb-jump neotree undo-tree go-mode alchemist gruvbox-theme gruvbox-themev org)))
+    (cquery company-lsp lsp-ui lsp-mode markdown-mode fireplace pyenv-mode flycheck-rust racer rust-mode flycheck magit nyan-mode use-package evil go-guru color-theme-sanityinc-tomorrow company-go elpy company rainbow-delimiters counsel swiper ivy projectile dumb-jump neotree undo-tree go-mode alchemist gruvbox-theme gruvbox-themev org)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
-	((20 . "#f2777a")
-	 (40 . "#f99157")
-	 (60 . "#ffcc66")
-	 (80 . "#99cc99")
-	 (100 . "#66cccc")
-	 (120 . "#6699cc")
-	 (140 . "#cc99cc")
-	 (160 . "#f2777a")
-	 (180 . "#f99157")
-	 (200 . "#ffcc66")
-	 (220 . "#99cc99")
-	 (240 . "#66cccc")
-	 (260 . "#6699cc")
-	 (280 . "#cc99cc")
-	 (300 . "#f2777a")
-	 (320 . "#f99157")
-	 (340 . "#ffcc66")
-	 (360 . "#99cc99"))))
+    ((20 . "#f2777a")
+     (40 . "#f99157")
+     (60 . "#ffcc66")
+     (80 . "#99cc99")
+     (100 . "#66cccc")
+     (120 . "#6699cc")
+     (140 . "#cc99cc")
+     (160 . "#f2777a")
+     (180 . "#f99157")
+     (200 . "#ffcc66")
+     (220 . "#99cc99")
+     (240 . "#66cccc")
+     (260 . "#6699cc")
+     (280 . "#cc99cc")
+     (300 . "#f2777a")
+     (320 . "#f99157")
+     (340 . "#ffcc66")
+     (360 . "#99cc99"))))
  '(vc-annotate-very-old-color nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -108,14 +108,14 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 (setq org-todo-keywords
-  '((sequence "NEXT(n)" "TODO(t)" "SOMEDAY(s)" | "DONE(d)" "CANCELLED(c)")))
+  '((sequence "RUNNING(r)" "NEXT(n)" "TODO(t)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")))
 (setq org-log-done t)
-(setq org-agenda-files (list "~/org/work.org"
-							 "~/org/personal.org"))
+(setq org-agenda-files '("~/org"))
 
+(dumb-jump-mode)
 (use-package dumb-jump
   :bind (("M-g o" . dumb-jump-go-other-window)
-         ("M-g j" . dumb-jump-go)
+         ("C-c C-j" . dumb-jump-go)
          ("C-c C-b" . dumb-jump-back)
          ("M-g i" . dumb-jump-go-prompt)
          ("M-g x" . dumb-jump-go-prefer-external)
@@ -172,9 +172,10 @@
 
   ;; guru settings
   (go-guru-hl-identifier-mode)                    ; highlight identifiers
+
   
   ;; Key bindings specific to go-mode
-  ;; (local-set-key (kbd "M-.") 'godef-jump)         ; go to definition
+  ;; (local-set-key (kbd "M-.") #'godef-jump)         ; go to definition
   ;; (local-set-key (kbd "M-*") 'pop-tag-mark)       ; Return from whence you came
   ;; (local-set-key (kbd "M-p") 'compile)            ; Invoke compiler
   ;; (local-set-key (kbd "M-P") 'recompile)          ; Redo most recent compile cmd
@@ -185,6 +186,7 @@
   (setq company-idle-delay .1)                         ; decrease delay before autocompletion popup shows
   (setq company-echo-delay 0)                          ; remove annoying blinking
   (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing (local-set-key (kbd "M-[") 'previous-error)     ; Go to previous error or msg
+
   )
 
 ;; Connect go-mode-hook with the function we just defined
