@@ -54,7 +54,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.dashboard.active = true
+-- lvim.builtin.dashboard.active = true
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
@@ -169,13 +169,16 @@ lvim.plugins = {
 -- dapui settings
 require("dapui").setup()
 local dap, dapui = require("dap"), require("dapui")
-dap.listeners.after.event_initialized["dapui_config"] = function()
+dap.listeners.after["event_initialized"]["dapui_config"] = function()
   dapui.open()
 end
-dap.listeners.before.event_terminated["dapui_config"] = function()
+dap.listeners.before["event_terminated"]["dapui_config"] = function()
   dapui.close()
 end
-dap.listeners.before.event_exited["dapui_config"] = function()
+dap.listeners.before["event_exited"]["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before["disconnect"]["dapui_config"] = function()
   dapui.close()
 end
 
@@ -211,6 +214,7 @@ lvim.builtin.dap.active = true
 lvim.keys.insert_mode["jk"] = false
 lvim.keys.insert_mode["kj"] = false
 
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["sP"] = { "<cmd>Telescope pickers<CR>", "Telescope picker" }
 lvim.builtin.which_key.mappings["sg"] = { "<cmd>Telescope grep_string<cr>", "Grep String Under Cursor" }
 lvim.builtin.which_key.mappings["m"] = {
@@ -221,3 +225,19 @@ lvim.builtin.which_key.mappings["m"] = {
     g = {"<cmd>:lua require('dap-go').debug_test()<cr>", "go nearest test"}
   }
 }
+
+lvim.keys.insert_mode["<A-j>"] = false
+lvim.keys.insert_mode["<A-k>"] = false
+lvim.keys.normal_mode["<A-j>"] = false
+lvim.keys.normal_mode["<A-k>"] = false
+lvim.keys.visual_block_mode["<A-j>"] = false
+lvim.keys.visual_block_mode["<A-k>"] = false
+lvim.keys.visual_block_mode["J"] = false
+lvim.keys.visual_block_mode["K"] = false
+
+-- Don't add pairs if it already has a close pair in the same line
+lvim.builtin.autopairs.enable_check_bracket_line = true
+
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
