@@ -170,7 +170,7 @@ lvim.plugins = {
 
 -- dapui settings
 require("dapui").setup({
-  icons = { expanded = "?", collapsed = "?" },
+  icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
     -- Use a table to apply multiple mappings
     expand = { "<CR>", "<2-LeftMouse>" },
@@ -244,6 +244,9 @@ lvim.builtin.lualine.sections.lualine_b = {
     end
   },
   components.filename,
+}
+lvim.builtin.lualine.sections.lualine_y = {
+  components.location
 }
 
 lvim.builtin.telescope.defaults.cache_picker = {
