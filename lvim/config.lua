@@ -142,6 +142,8 @@ linters.setup {
   -- },
 }
 
+lvim.builtin.dap.active = true
+
 -- Additional Plugins
 lvim.plugins = {
   { "tpope/vim-repeat" },
@@ -234,7 +236,7 @@ lvim.keys.insert_mode["<F1>"] = "<ESC>"
 lvim.keys.normal_mode["<C-g>"] = ":echo expand('%:~:.')<CR>"
 lvim.keys.visual_mode["p"] = "pgvy"
 
-lvim.builtin.lualine.options.theme = "nord"
+lvim.builtin.lualine.options.theme = "onelight"
 local components = require("lvim.core.lualine.components")
 lvim.builtin.lualine.sections.lualine_b = {
   components.branch,
@@ -252,8 +254,6 @@ lvim.builtin.lualine.sections.lualine_y = {
 lvim.builtin.telescope.defaults.cache_picker = {
   num_pickers = 5,
 }
-
-lvim.builtin.dap.active = true
 
 -- lunarvim set 'jj' 'jk' 'kj' as '<ESC>' by default
 lvim.keys.insert_mode["jk"] = false
