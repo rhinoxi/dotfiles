@@ -164,10 +164,14 @@ lvim.plugins = {
       vim.api.nvim_set_keymap("n", "F", ":HopLine<cr>", { silent = true })
     end,
   },
-  { "leoluz/nvim-dap-go" },
+  {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+  },
   { "rcarriga/nvim-dap-ui",
     requires = {"mfussenegger/nvim-dap"},
   },
+  { "romgrk/nvim-treesitter-context" },
 }
 
 -- dapui settings
