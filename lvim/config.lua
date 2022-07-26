@@ -172,6 +172,23 @@ lvim.plugins = {
     requires = {"mfussenegger/nvim-dap"},
   },
   { "romgrk/nvim-treesitter-context" },
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+  { "rhinoxi/nvim-dap-python", ft = "python" },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufRead",
+    setup = function()
+      vim.g.indentLine_enabled = 1
+      vim.g.indent_blankline_char = "▏"
+      vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
+      vim.g.indent_blankline_buftype_exclude = {"terminal"}
+      vim.g.indent_blankline_show_trailing_blankline_indent = false
+      vim.g.indent_blankline_show_first_indent_level = false
+    end
+  },
 }
 
 -- dapui settings
@@ -186,22 +203,24 @@ require("dapui").setup({
     repl = "r",
     toggle = "t",
   },
-  sidebar = {
-    -- You can change the order of elements in the sidebar
-    elements = {
-      -- Provide as ID strings or tables with "id" and "size" keys
-      { id = "scopes", size = 0.5 },
-      { id = "breakpoints", size = 0.25 },
-      { id = "stacks", size = 0.25 },
-      -- { id = "watches", size = 00.25 },
+  layouts = {
+    {
+      -- You can change the order of elements in the sidebar
+      elements = {
+        -- Provide as ID strings or tables with "id" and "size" keys
+        { id = "scopes", size = 0.5 },
+        { id = "breakpoints", size = 0.25 },
+        { id = "stacks", size = 0.25 },
+        -- { id = "watches", size = 00.25 },
+      },
+      size = 40,
+      position = "left", -- Can be "left", "right", "top", "bottom"
     },
-    size = 40,
-    position = "left", -- Can be "left", "right", "top", "bottom"
-  },
-  tray = {
-    elements = { "repl" },
-    size = 10,
-    position = "bottom", -- Can be "left", "right", "top", "bottom"
+    {
+      elements = { "repl" },
+      size = 10,
+      position = "bottom", -- Can be "left", "right", "top", "bottom"
+    },
   },
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.
@@ -231,9 +250,10 @@ dap.listeners.before["disconnect"]["dapui_config"] = function()
 end
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
+lvim.autocommands.custom_groups = {
+  -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+  -- {"BufEnter", "*", "lua vim.pretty_print(vim.fn.expand('%'))"},
+}
 
 lvim.keys.normal_mode["<F1>"] = "<ESC>"
 lvim.keys.insert_mode["<F1>"] = "<ESC>"
@@ -271,8 +291,18 @@ lvim.builtin.which_key.mappings["m"] = {
   p = {"<cmd>let @+=expand('%:p')<CR>", "Copy Full Path"},
   d = {
     name = "Debug",
-    g = {"<cmd>:lua require('dap-go').debug_test()<cr>", "go nearest test"}
   }
+}
+
+-- https://github.com/folke/trouble.nvim
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Diagnostics",
+  t = { "<cmd>TroubleToggle<cr>", "trouble" },
+  w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "workspace" },
+  d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "document" },
+  q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+  l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+  r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
 }
 
 lvim.keys.insert_mode["<A-j>"] = false
@@ -290,3 +320,5 @@ lvim.builtin.autopairs.enable_check_bracket_line = true
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+lvim.builtin.project.patterns = {".git"}
