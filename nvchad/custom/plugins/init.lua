@@ -4,8 +4,6 @@ return {
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-      vim.api.nvim_set_keymap("n", "f", ":HopChar2<cr>", { silent = true })
-      vim.api.nvim_set_keymap("n", "F", ":HopLine<cr>", { silent = true })
     end
   },
   [ "NvChad/nvterm" ] = {
@@ -20,7 +18,7 @@ return {
   },
   [ "leoluz/nvim-dap-go" ] = {
     ft = "go",
-    after = "nvim-dap",
+    requires = "nvim-dap",
     config = function()
       require("dap-go").setup()
       require("dap.ext.vscode").load_launchjs()
@@ -28,7 +26,7 @@ return {
   },
   [ "mfussenegger/nvim-dap-python" ] = {
     ft = "python",
-    after = "nvim-dap",
+    requires = "nvim-dap",
     config = function()
       require("dap-python").setup()
       require("dap.ext.vscode").load_launchjs()
@@ -48,15 +46,20 @@ return {
     end,
   },
   [ "jose-elias-alvarez/null-ls.nvim" ] = {
-    after = "nvim-lspconfig",
     config = function()
       require "custom.plugins.null-ls"
     end,
   },
   [ "romgrk/nvim-treesitter-context" ] = {},
 
-
+  [ "nvim-telescope/telescope-project.nvim" ] = {
+    after = "telescope.nvim",
+    config = function()
+      require"telescope".load_extension("project")
+    end
+  },
   ["nvim-telescope/telescope.nvim"] = {
+    module = "telescope",
     config = function()
       require "plugins.configs.telescope"
       require "custom.plugins.telescope"

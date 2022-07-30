@@ -9,7 +9,7 @@ M.defaults = {
       cclose
     endif
   endfunction
-  ]]
+  ]],
 }
 
 M.load = function(commands)

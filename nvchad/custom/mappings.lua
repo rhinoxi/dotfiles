@@ -25,8 +25,7 @@ M.telescope = {
     ["<leader>so"] = { "<cmd> Telescope oldfiles <CR>", "   find oldfiles" },
     ["<leader>sk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
 
-    ["<leader>lj"] = { "<cmd> lua vim.diagnostic.goto_next() <CR>", "next diagnostic" },
-    ["<leader>lk"] = { "<cmd> lua vim.diagnostic.goto_prev() <CR>", "next diagnostic" },
+    ["<C-p>"] = { "<cmd> Telescope project display_type=full <CR>", "show projects" },
   }
 }
 
@@ -53,6 +52,13 @@ M.gitsigns = {
     ["<leader>gj"] = { "<cmd>lua require'gitsigns'.next_hunk()<cr>", "next hunk" },
     ["<leader>gk"] = { "<cmd>lua require'gitsigns'.prev_hunk()<cr>", "prev hunk" },
     ["<leader>gd"] = { "<cmd>lua require'gitsigns'.diffthis(HEAD)<cr>", "git diff" },
+  }
+}
+
+M.hop = {
+  n = {
+    ["f"] = { "<cmd>HopChar2<cr>", "" },
+    ["F"] = { "<cmd>HopLine<cr>", "" },
   }
 }
 
@@ -89,6 +95,9 @@ M.lsp = {
       end,
       "   lsp code_action",
     },
+
+    ["<leader>lj"] = { "<cmd> lua vim.diagnostic.goto_next() <CR>", "next diagnostic" },
+    ["<leader>lk"] = { "<cmd> lua vim.diagnostic.goto_prev() <CR>", "next diagnostic" },
   }
 }
 
@@ -109,6 +118,7 @@ M.disabled = {
     ["<leader>v"] = "",
 
     ["<leader>cm"] = "",
+    ["<leader>pt"] = "",
   }
 }
 
