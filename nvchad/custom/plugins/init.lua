@@ -1,4 +1,15 @@
 return {
+  ["nvim-treesitter/nvim-treesitter"] = {
+    config = function()
+      require "plugins.configs.treesitter"
+      require "custom.plugins.treesitter"
+    end,
+  },
+  ["nvim-treesitter/playground"] = {
+    requires = "nvim-treesitter" ,
+    opt = true,
+    cmd = {"TSPlaygroundToggle"},
+  },
   [ "phaazon/hop.nvim" ] = {
     branch = 'v2', -- optional but strongly recommended
     config = function()

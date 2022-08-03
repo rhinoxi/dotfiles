@@ -11,3 +11,6 @@ vim.opt.sidescrolloff = 8
 vim.opt.swapfile = false
 vim.opt.undofile = true -- enable persistent undo
 
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 99

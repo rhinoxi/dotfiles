@@ -6,6 +6,7 @@ M.general = {
     ["<S-h>"] = { "<cmd> bprevious <CR>", "" },
     ["<S-l>"] = { "<cmd> bnext <CR>", "" },
     ["<C-q>"] = { "<cmd> :call QuickFixToggle()<CR>", "" },
+    ["<leader>h"] = { "<cmd> noh <CR>", "  no highlight" },
   },
   i = {
     ["<F1>"] = { "<cmd> echo <CR>", "" },
@@ -52,6 +53,7 @@ M.gitsigns = {
     ["<leader>gj"] = { "<cmd>lua require'gitsigns'.next_hunk()<cr>", "next hunk" },
     ["<leader>gk"] = { "<cmd>lua require'gitsigns'.prev_hunk()<cr>", "prev hunk" },
     ["<leader>gd"] = { "<cmd>lua require'gitsigns'.diffthis(HEAD)<cr>", "git diff" },
+    ["<leader>gl"] = { "<cmd>lua require'gitsigns'.blame_line()<cr>", "git blame" },
   }
 }
 
@@ -119,6 +121,7 @@ M.disabled = {
 
     ["<leader>cm"] = "",
     ["<leader>pt"] = "",
+    ["<ESC>"] = "",
   }
 }
 
