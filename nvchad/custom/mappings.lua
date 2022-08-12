@@ -18,6 +18,7 @@ M.telescope = {
   n = {
     -- search
     ["<leader>f"] = { "<cmd> Telescope find_files <CR>", "  find files", opts = { nowait = true, noremap = true } },
+    ["<leader>sa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all" },
 
     ["<leader>sg"] = { "<cmd> Telescope grep_string<CR>", "grep string under cursor" },
     ["<leader>st"] = { "<cmd> Telescope live_grep <CR>", "   live grep" },

@@ -1,4 +1,5 @@
 return {
+  ['folke/which-key.nvim'] = { disable = false  },
   ["nvim-treesitter/nvim-treesitter"] = {
     config = function()
       require "plugins.configs.treesitter"
@@ -69,12 +70,16 @@ return {
       require"telescope".load_extension("project")
     end
   },
-  ["nvim-telescope/telescope.nvim"] = {
+  [ "nvim-telescope/telescope.nvim" ] = {
     module = "telescope",
     config = function()
       require "plugins.configs.telescope"
       require "custom.plugins.telescope"
     end
+  },
+  [ "nvim-telescope/telescope-fzf-native.nvim" ] = {
+    requires = { "nvim-telescope/telescope.nvim" },
+    run = "make",
   },
   [ "kevinhwang91/nvim-bqf" ] = {
     ft = "qf"
@@ -99,4 +104,6 @@ return {
       }
     end,
   },
+
+  [ "rcarriga/nvim-notify" ] = {},
 }
