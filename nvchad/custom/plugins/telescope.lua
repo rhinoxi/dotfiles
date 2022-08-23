@@ -8,6 +8,9 @@ telescope.setup {
       i = { ["<c-t>"] = trouble.open_with_trouble },
       n = { ["<c-t>"] = trouble.open_with_trouble },
     },
+    cache_picker = {
+      num_pickers = 5,
+    },
   },
 }
 

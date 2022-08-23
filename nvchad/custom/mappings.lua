@@ -26,6 +26,8 @@ M.telescope = {
     ["<leader>sh"] = { "<cmd> Telescope help_tags <CR>", "  help page" },
     ["<leader>so"] = { "<cmd> Telescope oldfiles <CR>", "   find oldfiles" },
     ["<leader>sk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
+    ["<leader>ss"] = { "<cmd> Telescope resume <CR>", "resume" },
+    ["<leader>sp"] = { "<cmd> Telescope pickers <CR>", "pickers" },
 
     ["<C-p>"] = { "<cmd> Telescope project display_type=full <CR>", "show projects" },
   }
