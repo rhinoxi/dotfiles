@@ -1,5 +1,7 @@
 -- format on save
 vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]]
+vim.cmd [[autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync()]]
+vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()]]
 
 -- custom commands
 local commands = require "custom.commands"

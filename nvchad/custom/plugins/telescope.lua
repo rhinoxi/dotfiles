@@ -11,6 +11,7 @@ telescope.setup {
     cache_picker = {
       num_pickers = 5,
     },
+    file_ignore_patterns = {"vendor"},
   },
 }
 

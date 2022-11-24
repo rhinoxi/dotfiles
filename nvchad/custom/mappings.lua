@@ -6,7 +6,6 @@ M.general = {
     ["<S-h>"] = { "<cmd> bprevious <CR>", "" },
     ["<S-l>"] = { "<cmd> bnext <CR>", "" },
     ["<C-q>"] = { "<cmd> :call QuickFixToggle()<CR>", "" },
-    ["<leader>h"] = { "<cmd> noh <CR>", "  no highlight" },
   },
   i = {
     ["<F1>"] = { "<cmd> echo <CR>", "" },
@@ -28,8 +27,6 @@ M.telescope = {
     ["<leader>sk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
     ["<leader>ss"] = { "<cmd> Telescope resume <CR>", "resume" },
     ["<leader>sp"] = { "<cmd> Telescope pickers <CR>", "pickers" },
-
-    ["<C-p>"] = { "<cmd> Telescope project display_type=full <CR>", "show projects" },
   }
 }
 
@@ -75,8 +72,8 @@ M.trouble = {
     ["<leader>tq"] = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
     ["<leader>tl"] = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
 
-    ["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
-    ["gD"] = { "<cmd>TroubleToggle lsp_definitions<cr>", "definitions" },
+    ["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", "references (trouble)" },
+    ["gD"] = { "<cmd>TroubleToggle lsp_definitions<cr>", "definitions (trouble)" },
   }
 }
 
@@ -103,6 +100,66 @@ M.lsp = {
 
     ["<leader>lj"] = { "<cmd> lua vim.diagnostic.goto_next() <CR>", "next diagnostic" },
     ["<leader>lk"] = { "<cmd> lua vim.diagnostic.goto_prev() <CR>", "next diagnostic" },
+  }
+}
+
+M.harpoon = {
+  n = {
+    ["<leader>ha"] = {
+      function ()
+        require("harpoon.mark").add_file()
+      end,
+      "harpoon: add file",
+    },
+    ["<leader>hf"] = {
+      function ()
+        require("harpoon.ui").toggle_quick_menu()
+      end,
+    },
+    ["<leader>hn"] = {
+      function ()
+        require("harpoon.ui").nav_next()
+      end,
+      "harpoon: nav next",
+    },
+    ["<leader>hp"] = {
+      function ()
+        require("harpoon.ui").nav_prev()
+      end,
+      "harpoon: nav prev",
+    },
+    ["<leader>h1"] = {
+      function ()
+        require("harpoon.ui").nav_file(1)
+      end,
+      "harpoon: nav file(1)",
+    },
+    ["<leader>h2"] = {
+      function ()
+        require("harpoon.ui").nav_file(2)
+      end,
+      "harpoon: nav file(2)",
+    },
+    ["<leader>h3"] = {
+      function ()
+        require("harpoon.ui").nav_file(3)
+      end,
+      "harpoon: nav file(3)",
+    },
+  }
+}
+
+M.outline = {
+  n = {
+    ["<leader>a"] = { "<cmd>AerialToggle!<CR>", "toggle code outline" }
+  }
+}
+
+M.zen = {
+  n = {
+    ["<leader>zf"] = { "<cmd>TZFocus<CR>", "toggle zen: focus"},
+    ["<leader>zm"] = { "<cmd>TZMinimalist<CR>", "toggle zen: minimalist"},
+    ["<leader>za"] = { "<cmd>TZAtaraxis<CR>", "toggle zen: ataraxis"},
   }
 }
 

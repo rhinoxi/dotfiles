@@ -19,9 +19,13 @@ local sources = {
 
   -- python
   b.diagnostics.flake8,
+  b.formatting.black,
 
   -- go
   b.formatting.goimports,
+
+  -- rust
+  b.formatting.rustfmt,
 }
 
 null_ls.setup {
