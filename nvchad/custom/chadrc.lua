@@ -139,6 +139,13 @@ M.plugins = {
   },
 
   [ "Pocco81/true-zen.nvim" ] = {},
+
+  [ "kylechui/nvim-surround" ] = {
+    tag = "*",
+    config = function ()
+      require("nvim-surround").setup({})
+    end
+  },
 }
 
 return M

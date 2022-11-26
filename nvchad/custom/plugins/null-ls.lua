@@ -18,7 +18,10 @@ local sources = {
   b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
   -- python
-  b.diagnostics.flake8,
+  -- b.diagnostics.flake8,
+  b.diagnostics.flake8.with({
+    extra_args = {"--extend-ignore", "E501"},
+  }),
   b.formatting.black,
 
   -- go
