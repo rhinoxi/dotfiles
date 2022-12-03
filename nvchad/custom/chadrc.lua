@@ -35,7 +35,7 @@ M.plugins = {
       require "custom.plugins.treesitter"
     end,
     override_options = {
-      auto_install = true,
+      auto_install = false,
     },
   },
   [ "NvChad/nvterm" ] = {
@@ -146,6 +146,14 @@ M.plugins = {
       require("nvim-surround").setup({})
     end
   },
+
+  -- [ "rest-nvim/rest.nvim" ] = {
+  [ "rhinoxi/rest.nvim" ] = {
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function ()
+      require "custom.plugins.rest"
+    end
+  }
 }
 
 return M

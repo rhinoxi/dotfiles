@@ -185,4 +185,11 @@ M.disabled = {
   }
 }
 
+M.rest = {
+  n = {
+    ["<leader>rr"] = { "<Plug>RestNvim", "call api" },
+    ["<leader>rp"] = { "<Plug>RestNvimPreview", "copy curl" },
+  }
+}
+
 return M
