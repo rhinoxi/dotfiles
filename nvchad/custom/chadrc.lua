@@ -8,7 +8,7 @@ M.mappings = require "custom.mappings"
 
 M.ui = {
   theme = "everforest",
-  theme_toggle = { "everforest", "gruvbox_light" }
+  theme_toggle = { "gruvbox_material", "everforest" }
 }
 
 M.plugins = {
@@ -145,6 +145,14 @@ M.plugins = {
     config = function ()
       require("nvim-surround").setup({})
     end
+  },
+
+  [ "tpope/vim-dadbod" ] = {},
+
+  [ "kristijanhusak/vim-dadbod-ui" ] = {
+    requires = "tpope/vim-dadbod",
+    after = "vim-dadbod",
+    cmd = {"DBUI"},
   },
 
   -- [ "rest-nvim/rest.nvim" ] = {
