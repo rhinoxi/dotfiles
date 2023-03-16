@@ -51,3 +51,5 @@
 /emacs/rake.cache
 /emacs/plantuml.jar
 /emacs/magithub
+
+.DS_Store

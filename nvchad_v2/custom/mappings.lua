@@ -182,6 +182,7 @@ M.disabled = {
     ["<leader>cm"] = "",
     ["<leader>pt"] = "",
     ["<ESC>"] = "",
+    ["<TAB>"] = "",
   }
 }
 
