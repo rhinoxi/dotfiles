@@ -144,6 +144,12 @@ local plugins = {
     dependencies = "tpope/vim-dadbod",
     cmd = {"DBUI"},
   },
+  {
+    "folke/trouble.nvim",
+    config = function()
+      require("trouble").setup {}
+    end
+  },
 
   -- [ "rest-nvim/rest.nvim" ] = {
   {

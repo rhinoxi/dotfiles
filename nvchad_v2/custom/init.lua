@@ -1,7 +1,15 @@
 -- format on save
-vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]]
-vim.cmd [[autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync()]]
-vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()]]
+vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre *.py lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.format()]]
+-- absolute/relative number toggle
+vim.cmd [[
+  augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
+  augroup END
+]]
 
 -- custom commands
 local commands = require "custom.commands"
