@@ -19,9 +19,10 @@ local sources = {
 
   -- python
   -- b.diagnostics.flake8,
-  b.diagnostics.flake8.with({
-    extra_args = {"--extend-ignore", "E501,E203"},
-  }),
+  b.diagnostics.ruff,
+  -- b.diagnostics.flake8.with({
+  --   extra_args = {"--extend-ignore", "E501,E203"},
+  -- }),
   b.formatting.black,
 
   -- go

@@ -59,8 +59,7 @@ M.gitsigns = {
 
 M.hop = {
   n = {
-    ["f"] = { "<cmd>HopChar2<cr>", "" },
-    ["F"] = { "<cmd>HopLine<cr>", "" },
+    ["F"] = { "<cmd>HopChar2<cr>", "" },
   }
 }
 
@@ -181,8 +180,14 @@ M.disabled = {
 
     ["<leader>cm"] = "",
     ["<leader>pt"] = "",
+    ["<leader>fz"] = "",
     ["<ESC>"] = "",
     ["<TAB>"] = "",
+    ["<Tab>"] = "",
+    ["<tab>"] = "",
+    ["<S-Tab>"] = "",
+    ["<S-TAB>"] = "",
+    ["<S-tab>"] = "",
   }
 }
 

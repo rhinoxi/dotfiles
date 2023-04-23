@@ -84,6 +84,7 @@ local plugins = {
   },
   {
     "romgrk/nvim-treesitter-context",
+    lazy = false,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -116,6 +117,7 @@ local plugins = {
 
   {
     "stevearc/aerial.nvim",
+    cmd = {"AerialToggle"},
     config = function ()
       require("aerial").setup({
         filter_kind = false,
