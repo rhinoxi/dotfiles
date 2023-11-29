@@ -24,9 +24,9 @@ local plugins = {
     cmd = {"TSPlaygroundToggle"},
   },
   {
-    "phaazon/hop.nvim",
+    "smoka7/hop.nvim",
     lazy = false,
-    branch = 'v2', -- optional but strongly recommended
+    -- branch = 'v2', -- optional but strongly recommended
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
@@ -60,6 +60,7 @@ local plugins = {
   },
   {
     "rcarriga/nvim-dap-ui",
+    lazy = false,
     dependencies = {"mfussenegger/nvim-dap"},
     config = function()
       require "custom.configs.dap-ui"
@@ -71,7 +72,7 @@ local plugins = {
     dependencies = {
       -- format & linting
       {
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         config = function()
           require "custom.configs.null-ls"
         end,
@@ -148,6 +149,7 @@ local plugins = {
   },
   {
     "folke/trouble.nvim",
+    lazy = false,
     config = function()
       require("trouble").setup {}
     end
@@ -160,8 +162,7 @@ local plugins = {
     config = function ()
       require "custom.configs.rest"
     end
-  }
-
+  },
 }
 
 return plugins

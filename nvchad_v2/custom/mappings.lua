@@ -59,7 +59,7 @@ M.gitsigns = {
 
 M.hop = {
   n = {
-    ["F"] = { "<cmd>HopChar2<cr>", "" },
+    ["f"] = { "<cmd>HopChar2<cr>", "" },
   }
 }
 
@@ -86,7 +86,7 @@ M.lsp = {
     },
     ["<leader>lr"] = {
       function()
-        require("nvchad_ui.renamer").open()
+        require("nvchad.renamer").open()
       end,
       "   lsp rename",
     },

@@ -9,7 +9,7 @@ M.mappings = require "custom.mappings"
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "everforest",
+  theme = "onenord",
   hl_override = highlights.override,
   hl_add = highlights.add,
 

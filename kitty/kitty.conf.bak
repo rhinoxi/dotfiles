@@ -4,14 +4,18 @@ kitty_mod cmd
 
 #: Fonts {{{
 
-font_family      Fira Mono
+font_family      Fira Code
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
 
+font_features FiraCode-Regular -calt +zero +cv02 +cv16 +ss03 +ss05
+
 font_size 15
 
-adjust_column_width 0 
+modify_font cell_height -1px
+
+adjust_column_width 0
 
 #: }}}
 
@@ -62,7 +66,7 @@ window_margin_width 2
 window_padding_width 2
 # active_border_color yellow
 
-inactive_text_alpha 0.618
+# inactive_text_alpha 0.618
 
 # window_logo_path none
 
@@ -88,7 +92,7 @@ inactive_text_alpha 0.618
 
 #: Tab bar {{{
 
-tab_bar_edge top
+tab_bar_edge bottom
 
 tab_bar_min_tabs 1
 
@@ -105,17 +109,16 @@ tab_powerline_style angled
 tab_title_template "{index}.{title}"
 
 active_tab_title_template "[{layout_name}]{activity_symbol}{title}"
-active_tab_background #749C6F
-active_tab_foreground #fff
-inactive_tab_background #F9F1CB
-inactive_tab_foreground #749C6F
+# active_tab_background #749C6F
+# active_tab_foreground #fff
+# inactive_tab_background #F9F1CB
+# inactive_tab_foreground #749C6F
 
 #: }}}
 
 #: Color scheme {{{
-
-selection_foreground none
-selection_background none
+# selection_foreground none
+# selection_background none
 
 #: The color table {{{
 
@@ -126,6 +129,11 @@ selection_background none
 #: Advanced {{{
 
 editor vi
+
+listen_on unix:/tmp/mykitty
+
+allow_remote_control yes
+
 
 #: }}}
 
@@ -257,6 +265,6 @@ map f3 create_marker
 map f4 remove_marker
 
 # BEGIN_KITTY_THEME
-# Gruvbox Light
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME

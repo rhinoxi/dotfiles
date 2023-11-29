@@ -2,6 +2,7 @@
 vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.format()]]
 vim.cmd [[autocmd BufWritePre *.py lua vim.lsp.buf.format()]]
 vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre *.ex lua vim.lsp.buf.format()]]
 -- absolute/relative number toggle
 vim.cmd [[
   augroup numbertoggle
@@ -14,6 +15,9 @@ vim.cmd [[
 -- custom commands
 local commands = require "custom.commands"
 commands.load(commands.defaults)
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.opt.backup = false
 vim.opt.scrolloff = 8

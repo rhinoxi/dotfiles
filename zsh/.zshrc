@@ -110,7 +110,7 @@ source $ZSH/oh-my-zsh.sh
 
 # proxy alias
 alias set_proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
-alias unset_proxy='unset http_proxy;unset https_proxy;unset ALL_PROXY'
+alias unset_proxy='unset http_proxy;unset https_proxy;unset all_proxy'
 
 # alias vi='~/.local/bin/lvim'
 alias vi=nvim

@@ -19,7 +19,7 @@ local sources = {
 
   -- python
   -- b.diagnostics.flake8,
-  b.diagnostics.ruff,
+  -- b.diagnostics.ruff,
   -- b.diagnostics.flake8.with({
   --   extra_args = {"--extend-ignore", "E501,E203"},
   -- }),
@@ -30,6 +30,10 @@ local sources = {
 
   -- rust
   b.formatting.rustfmt,
+
+  -- elixir
+  b.diagnostics.credo,
+  b.formatting.mix,
 }
 
 null_ls.setup {
