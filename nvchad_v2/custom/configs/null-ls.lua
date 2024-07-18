@@ -15,7 +15,6 @@ local sources = {
 
   -- Shell
   b.formatting.shfmt,
-  b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
   -- python
   -- b.diagnostics.flake8,
@@ -29,7 +28,7 @@ local sources = {
   b.formatting.goimports,
 
   -- rust
-  b.formatting.rustfmt,
+  -- b.formatting.rustfmt,
 
   -- elixir
   b.diagnostics.credo,

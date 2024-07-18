@@ -65,11 +65,8 @@ M.hop = {
 
 M.trouble = {
   n = {
-    ["<leader>tt"] = { "<cmd>TroubleToggle<cr>", "trouble" },
-    ["<leader>tw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace diagnostics" },
-    ["<leader>td"] = { "<cmd>TroubleToggle document_diagnostics<cr>", "document diagnostics" },
-    ["<leader>tq"] = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-    ["<leader>tl"] = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+    ["<leader>tt"] = { "<cmd>Trouble diagnostics toggle<cr>", "trouble" },
+    ["<leader>tq"] = { "<cmd>Trouble qflist toggle<cr>", "quickfix" },
 
     ["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", "references (trouble)" },
     ["gD"] = { "<cmd>TroubleToggle lsp_definitions<cr>", "definitions (trouble)" },

@@ -8,6 +8,8 @@ local servers = {
   -- "pyright",
   "tsserver",
   "rust_analyzer",
+  "r_language_server",
+  "gdscript",
 }
 
 for _, lsp in ipairs(servers) do

@@ -70,4 +70,11 @@ M.telescope = {
   extensions_list = {"themes", "terms", "fzf"},
 }
 
+-- conflict with codeium Tab action
+M.cmp = {
+  mapping = {
+    ["<Tab>"] = vim.NIL
+  }
+}
+
 return M

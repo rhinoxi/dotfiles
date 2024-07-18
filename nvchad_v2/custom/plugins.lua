@@ -9,6 +9,10 @@ local plugins = {
     opts = overrides.nvimtree,
   },
   {
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp,
+  },
+  {
     "NvChad/nvterm",
     enabled = false,
   },
@@ -61,7 +65,10 @@ local plugins = {
   {
     "rcarriga/nvim-dap-ui",
     lazy = false,
-    dependencies = {"mfussenegger/nvim-dap"},
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio"
+    },
     config = function()
       require "custom.configs.dap-ui"
     end,
@@ -128,6 +135,7 @@ local plugins = {
 
   {
     "Pocco81/true-zen.nvim",
+    cmd = {"TZAtaraxis", "TZMinimalist", "TZFocus", "TZNarrow"},
   },
 
   {
@@ -162,6 +170,11 @@ local plugins = {
     config = function ()
       require "custom.configs.rest"
     end
+  },
+
+  {
+    "Exafunction/codeium.vim",
+    lazy = true,
   },
 }
 
